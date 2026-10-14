@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: swapd-marketplace
+    runtime: node
+    plan: starter
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: DB_PATH
+        value: /var/data/swapd.sqlite
+    disk:
+      name: swapd-data
+      mountPath: /var/data
+      sizeGB: 1
